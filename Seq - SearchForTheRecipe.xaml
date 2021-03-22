@@ -1,4 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Seq___SearchForTheRecipe" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="577,2310" sap2010:WorkflowViewState.IdRef="Seq___SearchForTheRecipe_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Seq___SearchForTheRecipe" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_RecipeName" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>787,4250</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Seq___SearchForTheRecipe_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
       <x:String>System.Activities</x:String>
@@ -32,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -58,15 +67,16 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
-      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Seq___SearchForTheRecipe" sap:VirtualizedContainerService.HintSize="552,2245" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Seq___SearchForTheRecipe" sap:VirtualizedContainerService.HintSize="797,4185" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="searchFlag" />
       <Variable x:TypeArguments="x:Boolean" Name="searchResultsFlag" />
@@ -86,10 +96,10 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter data into search bar&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Enter data into search bar&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -97,7 +107,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:UiElementExists DisplayName="Element Exists 'search bar'" Exists="[searchFlag]" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:UiElementExists DisplayName="Element Exists 'search bar'" Exists="[searchFlag]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f91aa0e1-be75-4a3a-8edb-f03947d91de2" InformativeScreenshot="576d4f1c61392d0a149c3ea5b8c9179f" Selector="&lt;html app='msedge.exe' title='Recipes, recipes and recipes - Taste' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;">
           <ui:Target.TimeoutMS>
@@ -115,7 +125,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[searchFlag]" DisplayName="If 'Search bar found?'" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[searchFlag]" DisplayName="If 'Search bar found?'" sap:VirtualizedContainerService.HintSize="755,292" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -123,7 +133,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Recipe'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;Apple&quot;+&quot;[k(enter)]&quot;]">
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Recipe'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[in_RecipeName+&quot;[k(enter)]&quot;]">
           <ui:TypeInto.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0769d9d4-c6bc-4562-ada8-20e97a4d9249" InformativeScreenshot="576d4f1c61392d0a149c3ea5b8c9179f" Selector="&lt;html app='msedge.exe' title='Recipes, recipes and recipes - Taste' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;input' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
@@ -146,7 +156,7 @@
         <Throw Exception="[New Exception(&quot;Search bar not found&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Looking for search results text&quot;]">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Looking for search results text&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -154,7 +164,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <ui:UiElementExists DisplayName="Element Exists 'SearchResults'" Exists="[searchResultsFlag]" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="Element Exists 'SearchResults'" Exists="[searchResultsFlag]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e89d49bd-51f6-4a14-8959-ed47a98776ff" InformativeScreenshot="a4d6ff279b66958901440e03a8c69d6b" Selector="&lt;html app='msedge.exe' title='Search' /&gt;&lt;webctrl tag='H1' /&gt;">
           <ui:Target.TimeoutMS>
@@ -172,7 +182,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
-    <If Condition="[searchResultsFlag]" sap:VirtualizedContainerService.HintSize="510,51" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[searchResultsFlag]" sap:VirtualizedContainerService.HintSize="755,403" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -202,7 +212,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="510,66" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="755,436" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -235,42 +245,42 @@
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <ui:OutputDataTable DataTable="[ExtractDataTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="510,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[str]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="510,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[str]">
+    <ui:OutputDataTable DataTable="[ExtractDataTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="755,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[str]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="755,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[str]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,1340" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="755,2127" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,1220" sap2010:WorkflowViewState.IdRef="Sequence_19">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,2007" sap2010:WorkflowViewState.IdRef="Sequence_19">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe  Search'" sap:VirtualizedContainerService.HintSize="434,1128" sap2010:WorkflowViewState.IdRef="BrowserScope_9" InformativeScreenshot="bd18ae8a69b849da0f9b4bb4d1986693" Selector="&lt;html app='msedge.exe' title='Search' /&gt;">
+            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Attach Browser 'msedge.exe  Search'" sap:VirtualizedContainerService.HintSize="530,1915" sap2010:WorkflowViewState.IdRef="BrowserScope_9" InformativeScreenshot="bd18ae8a69b849da0f9b4bb4d1986693" Selector="&lt;html app='msedge.exe' title='Search' /&gt;">
               <ui:BrowserScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,942" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1769" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="NavigateTo_4" Url="[&quot;https://www.taste.com.au&quot;+row(&quot;URL&quot;).ToString]" />
-                    <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'UL'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_3">
+                    <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="454,59" sap2010:WorkflowViewState.IdRef="NavigateTo_4" Url="[in_Config(&quot;SiteURL&quot;).ToString+row(&quot;URL&quot;).ToString]" />
+                    <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'UL'" sap:VirtualizedContainerService.HintSize="454,106" sap2010:WorkflowViewState.IdRef="GetFullText_3">
                       <ui:GetFullText.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1ea7cc7b-e13c-4e08-b575-029c4fb2ac5f" InformativeScreenshot="53925b6386123cbf0764571db13029b3" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;ul' tag='UL' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -286,26 +296,26 @@
                       </ui:GetFullText.Text>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:GetFullText>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[ingredients.Replace(Environment.NewLine+Environment.NewLine,Environment.NewLine)]">
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="454,59" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[ingredients.Replace(Environment.NewLine+Environment.NewLine,Environment.NewLine)]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:MessageBox>
-                    <Sequence DisplayName="Match - Sequence" sap:VirtualizedContainerService.HintSize="334,243" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence DisplayName="Match - Sequence" sap:VirtualizedContainerService.HintSize="454,963" sap2010:WorkflowViewState.IdRef="Sequence_20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[selector]</OutArgument>
                         </Assign.To>
@@ -313,13 +323,13 @@
                           <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html app='msedge.exe' title='"+row("Name").ToString+"*"+"' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;ul&amp;gt;li' tag='LI'  idx='"+counter.ToString+"'  /&gt;"]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                      <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,771" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                         <ui:InterruptibleDoWhile.Body>
                           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,606" sap2010:WorkflowViewState.IdRef="Sequence_21">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text 'LI'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_4">
@@ -339,7 +349,7 @@
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:GetFullText>
@@ -380,14 +390,14 @@
                               </ui:UiElementExists.Target>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:UiElementExists>
                           </Sequence>
                         </ui:InterruptibleDoWhile.Body>
                         <ui:InterruptibleDoWhile.Condition>
-                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="nextStepFlag" />
+                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="nextStepFlag" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
                         </ui:InterruptibleDoWhile.Condition>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -397,26 +407,27 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:InterruptibleDoWhile>
                     </Sequence>
-                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[finalMethod]">
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="454,59" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[finalMethod]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:MessageBox>
-                    <ui:WriteTextFile DisplayName="Write Text File" FileName="Output\sample.txt" sap:VirtualizedContainerService.HintSize="334,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[ingredients.Replace(Environment.NewLine+Environment.NewLine,Environment.NewLine)+vbLf+vbLf+finalMethod]">
+                    <ui:WriteTextFile DisplayName="Write Text File" FileName="[&quot;Output\&quot;+in_RecipeName+&quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="454,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[ingredients.Replace(Environment.NewLine+Environment.NewLine,Environment.NewLine)+vbLf+vbLf+finalMethod]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:WriteTextFile>
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="454,59" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Result Obtained&quot;]" />
                   </Sequence>
                 </ActivityAction>
               </ui:BrowserScope.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -426,7 +437,7 @@
       </ui:ForEachRow.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>

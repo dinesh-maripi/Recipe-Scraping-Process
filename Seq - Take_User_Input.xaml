@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Seq___Take_User_Input" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="577,965" sap2010:WorkflowViewState.IdRef="Seq___Take_User_Input_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Seq___Take_User_Input" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Recipe" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>577,670</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Seq___Take_User_Input_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -28,7 +36,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="24">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -53,65 +61,64 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Seq___Take_User_Input" sap:VirtualizedContainerService.HintSize="539,900" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Seq___Take_User_Input" sap:VirtualizedContainerService.HintSize="539,605" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="choice" />
-      <Variable x:TypeArguments="x:String" Name="Recipe" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="497,51" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="please select one from the below" Options="[{&quot;Fruits&quot;,&quot;Vegetables&quot;,&quot;Meat&quot;}]" Title="Recipe">
+    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="497,291" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="please select one from the below" Options="[{&quot;Fruits&quot;,&quot;Vegetables&quot;,&quot;Meat&quot;}]" Title="Recipe">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[choice]</OutArgument>
       </ui:InputDialog.Result>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:InputDialog>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[choice]" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[choice]" sap:VirtualizedContainerService.HintSize="497,519" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InputDialog OptionsString="{x:Null}" x:Key="Fruits" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="please select one of the following" Options="[{&quot;Banana&quot;,&quot;Apple&quot;,&quot;Grapes&quot;}]" Title="Fruits">
+    </ui:InputDialog>
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[choice]" sap:VirtualizedContainerService.HintSize="497,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InputDialog OptionsString="{x:Null}" x:Key="Fruits" sap:VirtualizedContainerService.HintSize="334,291" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="please select one of the following" Options="[{&quot;Banana&quot;,&quot;Apple&quot;,&quot;Grapes&quot;}]" Title="Fruits">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[Recipe]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_Recipe]</OutArgument>
         </ui:InputDialog.Result>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InputDialog>
-      <ui:InputDialog OptionsString="{x:Null}" x:Key="Vegetables" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="please select one of te following" Options="[{&quot;Cabbage&quot;,&quot;Broccoli&quot;,&quot;Pumpkin&quot;,&quot;Tomato&quot;}]" Title="Vegetables">
+      <ui:InputDialog OptionsString="{x:Null}" x:Key="Vegetables" sap:VirtualizedContainerService.HintSize="334,291" sap2010:WorkflowViewState.IdRef="InputDialog_3" IsPassword="False" Label="please select one of te following" Options="[{&quot;Cabbage&quot;,&quot;Broccoli&quot;,&quot;Pumpkin&quot;,&quot;Tomato&quot;}]" Title="Vegetables">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[Recipe]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_Recipe]</OutArgument>
         </ui:InputDialog.Result>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:InputDialog>
       <ui:InputDialog OptionsString="{x:Null}" x:Key="Meat" sap:VirtualizedContainerService.HintSize="334,291" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="please select one of the following" Options="[{&quot;Chicken&quot;,&quot;Fish&quot;,&quot;Prawns&quot;}]" Title="Meat">
         <ui:InputDialog.Result>
-          <OutArgument x:TypeArguments="x:String">[Recipe]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_Recipe]</OutArgument>
         </ui:InputDialog.Result>
       </ui:InputDialog>
     </Switch>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[Recipe]" />
   </Sequence>
 </Activity>
